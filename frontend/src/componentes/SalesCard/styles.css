@@ -1,0 +1,84 @@
+.vendas-card {
+    background-color: #283142;
+    border-radius: 10px;
+    padding: 40px 33px;
+}
+
+.vendas-titulo {
+    font-size: 24px;
+    color: #676FFF;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 16px;
+    max-width: 300px;
+}
+
+.input {
+    border-radius: 5px;
+    border: 1px solid #384459;
+    height: 46px;
+    width: 100%;
+    padding: 0 20px;
+    color: #9AAABE;
+    font-size: 18px;
+    background-color: #1B2531;
+    margin: 10px 0;
+}
+
+.vendas-table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.vendas-table thead {
+    height: 55px;
+    font-size: 16px;
+    color: #E9E9E9;
+    font-weight: 700;
+}
+
+.vendas-table tbody {
+    font-size: 14px;
+    color: #CFCFCF;
+    font-weight: 400;
+    text-align: center;
+}
+
+.vendas-table tbody td {
+    height: 74px;
+    border-top: 1px solid #5F6E82;
+}
+
+.vendas-table tbody tr:hover > td {
+    background-color: #384459;
+}
+
+.vendas-table tbody tr:nth-child(odd) {
+    background-color: #242C3B;
+}
+
+.vendas-botao-container {
+    display: flex;
+    justify-content: center;
+}
+
+.responsivo-576 {
+    display: none;;
+}
+.responsivo-992 {
+    display: none;
+}
+
+@media (min-width: 576px) {
+    .responsivo-576 {
+        display: table-cell;
+    }
+}
+
+@media (min-width: 992px) {
+    .responsivo-992 {
+        display: table-cell;
+    }
+}

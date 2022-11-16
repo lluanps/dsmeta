@@ -12,3 +12,13 @@ html {
   background-color: #000;
   color: #fff;
 }
+
+.vendas-container{
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#vendas{
+  padding: 40px 20px;
+}
