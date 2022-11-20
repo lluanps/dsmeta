@@ -77,7 +77,7 @@ function SalesCard() {
                                         <td>{sale.amount.toFixed(2)}</td>
                                         <td>
                                             <div className="vendas-botao-container">
-                                                <NotificationButton />
+                                                <NotificationButton saleId={sale.id}/>
                                             </div>
                                         </td>
                                     </tr>
