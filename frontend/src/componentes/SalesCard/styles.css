@@ -15,6 +15,17 @@
     max-width: 300px;
 }
 
+.dsmeta-form-control {
+    color:#9AAABE;
+    font-size: 18px;
+    background-color: #1B2531;
+    border: 1px solid #384459;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 100%;
+}
+
 .input {
     border-radius: 5px;
     border: 1px solid #384459;

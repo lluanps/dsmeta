@@ -1,6 +1,9 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Sale } from "../../models/sale";
+import { BASE_URL } from "../../utils/request";
 import NotificationButton from '../NotificationButton';
 import './styles.css';
 
@@ -12,6 +15,14 @@ function SalesCard() {
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
 
+    const [sales, setSales] = useState<Sale[]>([]);
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/sales`)
+            .then(response => {
+                setSales(response.data.content);
+            })
+    }, []);
 
 
     return (
@@ -40,54 +51,35 @@ function SalesCard() {
                 <div>
                     <table className="vendas-table">
                         <thead>
-                            <th className="responsivo-992">Id</th>
-                            <th className="responsivo-576">Data</th>
-                            <th>Vendedor</th>
-                            <th>Visitas</th>
-                            <th className="responsivo-992">Vendas</th>
-                            <th className="responsivo-992">Total</th>
-                            <th>Notificar</th>
+                            <tr>
+                                <th className="responsivo-992">Id</th>
+                                <th className="responsivo-576">Data</th>
+                                <th>Vendedor</th>
+                                <th>Visitas</th>
+                                <th className="responsivo-992">Vendas</th>
+                                <th className="responsivo-992">Total</th>
+                                <th>Notificar</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td className="responsivo-992">#341</td>
-                                <td className="responsivo-576">14/11/2022</td>
-                                <td className="responsivo-992">15</td>
-                                <td className="responsivo-992">11</td>
-                                <td>Luan</td>
-                                <td>R$ 55300.00</td>
-                                <td>
-                                    <div className="vendas-botao-container">
-                                        <NotificationButton />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="responsivo-992">#341</td>
-                                <td className="responsivo-576">14/11/2022</td>
-                                <td className="responsivo-992">15</td>
-                                <td className="responsivo-992">11</td>
-                                <td>Luan</td>
-                                <td>R$ 55300.00</td>
-                                <td>
-                                    <div className="vendas-botao-container">
-                                        <NotificationButton />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="responsivo-992">#341</td>
-                                <td className="responsivo-576">14/11/2022</td>
-                                <td className="responsivo-992">15</td>
-                                <td className="responsivo-992">11</td>
-                                <td>Luan</td>
-                                <td>R$ 55300.00</td>
-                                <td>
-                                    <div className="vendas-botao-container">
-                                        <NotificationButton />
-                                    </div>
-                                </td>
-                            </tr>
+                            {sales.map(sale => {
+                                return (
+                                    <tr key={sale.id}>
+                                        <td className="responsivo-992">{sale.id}</td>
+                                        <td className="responsivo-576">{new Date(sale.date).toLocaleDateString()}</td>
+                                        <td>{sale.sellerName}</td>
+                                        <td className="responsivo-992">{sale.visited}</td>
+                                        <td className="responsivo-992">{sale.deals}</td>
+                                        <td>{sale.amount.toFixed(2)}</td>
+                                        <td>
+                                            <div className="vendas-botao-container">
+                                                <NotificationButton />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+
                         </tbody>
                     </table>
                 </div>
