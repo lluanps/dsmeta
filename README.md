@@ -3,15 +3,15 @@ Dsmeta tem como o objetivo consultar as vendas e também possibilitar o envio de
 Ferramentas usadas:
 
 FRONTEND:
-typescript
-ReactJs
-React-toasity
+typescript,
+ReactJs,
+React-toasity,
 Axios
 
 BACKEND:
-Java
-Springboot
-Springsecurity
-JPA
-Maven
-Twilio
+Java,
+Springboot,
+Springsecurity,
+JPA,
+Maven,
+Twilio,
